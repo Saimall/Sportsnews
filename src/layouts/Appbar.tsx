@@ -40,17 +40,6 @@ const Appbar = () => {
                 <span className={`${enabled? 'bg-slate-500' : 'bg-slate-400'} font-bold text-xl`}>SPORTS NEWS</span>
                 </div>
               </div>
-
-              
-          {/* <Menu as="div" className="relative ml-3">
-            <div>
-              <Menu.Button className="rounded-full bg-white p-1 text-gray-400 hover:text-blue-600">
-                <UserCircleIcon className="h-6 w-6" aria-hidden="true" />
-              </Menu.Button>
-            </div>
-            ...
-            ...
-          </Menu> */}
           <div className="flex items-center">
           <span>
              <Switch
