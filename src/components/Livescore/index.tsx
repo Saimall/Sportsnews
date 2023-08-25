@@ -6,15 +6,13 @@ import { ThemeContext } from "../../context/theme";
 const Livescore = ()=>{
    
     const { theme } = useContext(ThemeContext)
-const sportNames = ['Football', 'Basketball', 'Tennis', 'Cricket', 'Baseball'];
+const sportNames = ['Football', 'Basketball', 'Tennis'];
   const Teams = [
     ['demo A', 'demo B'],
     ['demo C', 'demo D'],
     ['demo E', 'demo F'],
-    ['demo G', 'demo H'],
-    ['demo I', 'demo J']
   ];
-  const values = [['1', '9'], ['8', '6'],  ['6-2', '4-6'], ['10', '10'], ['5', '3']];
+  const values = [['1', '9'], ['8', '6'],  ['6-2', '4-6']];
 
   return (
     <div>

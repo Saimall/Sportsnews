@@ -6,7 +6,7 @@ import Livescore from './Livescore';
 function Home() {
   return (
 
-    <div className='m-4'>
+    <div className='m-4 bg-grey-777'>
 
       <Appbar/>
       <div className='bg-grey 777'>
