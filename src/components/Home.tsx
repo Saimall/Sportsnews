@@ -1,4 +1,5 @@
 import Appbar from '../layouts/Appbar'
+import Articles  from "./Articles";
 
 function Home() {
   return (
@@ -6,6 +7,8 @@ function Home() {
     <div>
 
       <Appbar/>
+
+      <Articles/>
     </div>
   )
 }
