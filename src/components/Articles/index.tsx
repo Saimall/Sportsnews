@@ -27,7 +27,7 @@ const Articles=()=> {
   return (
           <div className='m-4'>
             {items.map((item) => (
-              <div key={item.id} className="my-4 p-4 bg-grey-600 rounded-md flex">
+              <div key={item.id} className="my-4 p-4 bg-grey-600 rounded-md flex conatiner">
                 <div className="flex-1">
                     <div>
                       <h3 className="text-sm  mb-2 bg-grey-777">{item.sport}</h3>
