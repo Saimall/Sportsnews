@@ -7,27 +7,27 @@ const Articles=()=> {
     const items = [
         {
           id: 1,
-          sport:"cricket",
-          title: 'Item 1',
+          sport:"volley",
+          title: 'Title 1',
           details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          date:"Dec 22,2022",
+          date:"Dec 27,2034",
           image:"person.png" ,
         },
         {
           id: 2,
           sport:"cricket",
-          title: 'Item 2',
+          title: 'Title 2',
           details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-          date:"Dec 22,2022",
+          date:"Dec 28,2034",
           image: 'person.png',
         },
-        // Add more items as needed
+        
       ];
     
   return (
-          <div className='m-4'>
+          <div className='m-4 bg-grey-600'>
             {items.map((item) => (
-              <div key={item.id} className="my-4 p-4 bg-grey-600 rounded-md flex conatiner">
+              <div key={item.id} className="bg-grey shadow-md shadow-border-md my-4 p-4 bg-grey-600 rounded-md flex">
                 <div className="flex-1">
                     <div>
                       <h3 className="text-sm  mb-2 bg-grey-777">{item.sport}</h3>
