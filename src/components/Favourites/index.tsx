@@ -1,25 +1,43 @@
+import { Link } from "react-router-dom";
 
 
 const Favourites=()=>{
    
    
-   const list1=['demo1','demo2','demo3'];
+    const items = [
+        {
+          id: 1,
+          title: 'Item 1',
+          details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        },
+        {
+          id: 2,
+          title: 'Item 2',
+          details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        },
+        
+      ];  
 
     return (
-        <div className='m-3 bg-gray-200'>
-        <div className="flex flex-col md:flex-row h-screen">
-          <div className="flex-1 ">
-            <div className="shadow-md shadow-border-md my-4 p-4 bg-grey-600 rounded-md flex container">
-              {list1.map((item, index) => (
-                <div key={index} className="bg-light-200 shadow-md shadow-border-md my-4 p-4 bg-grey-600 rounded-md flex">
-                  {item}
+        <div className="m-4 bg-gray-200">
+        <div className="m-2">
+          {items.map((item) => (
+            <div key={item.id} className="my-4 p-4 bg-white rounded-md shadow-md">
+              <div className="flex flex-col justify-center">
+                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                <p className="text-gray-600 mb-4">{item.details}</p>
+      
+                <div className="flex justify-end">
+                  <Link to="/" className="text-blue-500 hover:underline font-bold">
+                    Read More
+                  </Link>
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
-
+          ))}
         </div>
       </div>
+      
 )}
 
 export default Favourites;
