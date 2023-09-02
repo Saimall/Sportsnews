@@ -2,8 +2,7 @@
 import { Disclosure  , Menu, Switch  } from "@headlessui/react";
 import Logo from "../assets/react.svg";
 import { Link } from 'react-router-dom';
-import { useState } from "react";
-import { UserCircleIcon } from "@heroicons/react/20/solid";
+import { useEffect, useState } from "react";
 
 import { useContext } from 'react'
 
@@ -26,6 +25,13 @@ const Appbar = () => {
     setEnabled(!enabled)
     setTheme(newTheme)
   }
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
 
 
   return (
