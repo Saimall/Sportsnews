@@ -11,7 +11,9 @@ type data = {
     thumbnail: string;
     sport : data;
     date: string;
+    content: string;
     }
+
     
     export interface ArticlesState {
       articles: Article[];
