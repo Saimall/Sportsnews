@@ -5,12 +5,12 @@ type data = {
   
   export interface Article {
     id: number;
-    title: string;
     teams:data[];
-    thumbnail: string;
+    title: string;
     summary : string;
-    date: string;
+    thumbnail: string;
     sport : data;
+    date: string;
     }
     
     export interface ArticlesState {

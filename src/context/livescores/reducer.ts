@@ -1,7 +1,6 @@
 import { MatchesActions, MatchesState, initialState } from "./interfaces";
 
 
-
 export const reducer = (
     state: MatchesState = initialState,
     action: MatchesActions

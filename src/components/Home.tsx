@@ -1,7 +1,7 @@
 import Appbar from '../layouts/Appbar'
 import Articles  from "./Articles";
 import Favourites from './Favourites';
-import Livescore from './Livescore';
+import LiveScorePage from './livescores';
 
 function Home() {
   return (
@@ -10,7 +10,7 @@ function Home() {
 
       <Appbar/>
       <div className='bg-grey 777'>
-        <Livescore/>
+        <LiveScorePage/>
           <h1 className="font-bold text-xl p-4">Trending News</h1>
           <div className="flex flex-col lg:flex-row">
 

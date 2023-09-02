@@ -1,31 +1,4 @@
-
-interface Team {
-    id: number,
-    name: string
-  }
-  export interface Props {
-      id : number
-  }
-    
-  export interface TeamScores {
-    [key : string]: string,
-  }
-  
-  export interface State  {
-    id: number;
-    isRunning: boolean;
-    name: string;
-    location: string;
-    startsAt: string;
-    endsAt: string;
-    score: TeamScores,
-    teams: Team[];
-    sportName: string;
-    playingTeam: number;
-    story: string;
-  }
-
-  interface Match {
+interface Match {
     id: number;
     name: string;
     location: string;
@@ -51,3 +24,30 @@ export type MatchesActions =
     | { type: "FETCH_MATCHES_REQUEST" }
     | { type: "FETCH_MATCHES_SUCCESS"; payload: Match[] }
     | { type: "FETCH_MATCHES_FAILURE"; payload: string }
+
+
+export interface Team {
+        id: number,
+        name: string
+      }
+export interface Props {
+          id : number
+      }
+        
+export interface TeamScores {
+        [key : string]: string,
+      }
+      
+export interface State  {
+        id: number;
+        isRunning: boolean;
+        name: string;
+        location: string;
+        startsAt: string;
+        endsAt: string;
+        score: TeamScores,
+        teams: Team[];
+        sportName: string;
+        playingTeam: number;
+        story: string;
+      }
