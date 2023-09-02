@@ -30,7 +30,6 @@ export default function ArticleList() {
     <div key={article.id} className="bg-white shadow-md rounded-lg overflow-hidden">
       <img
         src={article.thumbnail}
-        alt={article.title}
         className="w-full h-48 object-cover"
       />
       <div className="p-4">
@@ -52,3 +51,8 @@ export default function ArticleList() {
 </div>
   )
 }
+
+
+
+
+
