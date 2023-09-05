@@ -31,7 +31,7 @@ const LiveMatch = (props: Props) => {
   
  
 
-  const fetchMatchDetails = async (id: number) => {
+  const getmatchinformation = async (id: number) => {
     try {
       const response = await fetch(`${API_ENDPOINT}/matches/${id}`, {
         method: 'GET',
@@ -50,7 +50,7 @@ const LiveMatch = (props: Props) => {
   };
 
   useEffect(() => {
-    fetchMatchDetails(props.id);
+    getmatchinformation(props.id);
   }, [props.id]);
 
   return liveMatch.isRunning ? (
@@ -61,7 +61,7 @@ const LiveMatch = (props: Props) => {
             <p className="text-lg font-semibold">{liveMatch.sportName}</p>
             <button
               className="hover:bg-gray-700 text-white py-2 px-3 rounded-full"
-              onClick={() => fetchMatchDetails(liveMatch.id)}
+              onClick={() => getmatchinformation(liveMatch.id)}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
