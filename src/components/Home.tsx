@@ -1,6 +1,6 @@
 import Appbar from '../layouts/Appbar'
 import Articles  from "./Articles";
-import Favourites from './Favourites';
+import Favouritesdisplay from './Favourites';
 import LiveScorePage from './livescores';
 
 function Home() {
@@ -13,14 +13,12 @@ function Home() {
         <LiveScorePage/>
           <h1 className="font-bold text-xl p-4">Trending News</h1>
           <div className="flex flex-col lg:flex-row">
-
-
             <div className="lg:w-3/4 shadow-lg">
               <Articles />
             </div>
             <div className="lg:w-1/4 shadow-lg">
             <h1 className="font-bold text-xl p-4">Favourites</h1>
-              <Favourites />
+              <Favouritesdisplay />
             </div>
           </div>
       </div>
