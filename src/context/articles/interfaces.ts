@@ -1,6 +1,6 @@
 type data = {
+  name : string;
     id : number;
-    name : string;
   }
   
   export interface Article {

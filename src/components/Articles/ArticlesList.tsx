@@ -14,7 +14,7 @@ const ArticleListItem = ({ article }: ArticleListItemsProps) => {
   const [articleDetailsData, setArticleDetailsData] = useState<Article | null>(null);
 
 
-  const handleLinkClick = async (articleId: number) => {
+  const Readhandleclick = async (articleId: number) => {
     setSelectedArticleId(articleId);
     setIsDialogOpen(true);
     await fetchArticleDetails(articleId);
@@ -52,7 +52,7 @@ const ArticleListItem = ({ article }: ArticleListItemsProps) => {
             <div className="flex items-center justify-between">
           <div className="text-sm text-gray-400">{article.sport.name}</div>
           <div className="text-sm text-gray-400">{article.date}</div>
-          <button onClick={() => handleLinkClick(article.id)} className="text-black underline">
+          <button onClick={() => Readhandleclick(article.id)} className="text-black underline">
                 Read More...
               </button>
       </div>
@@ -63,41 +63,39 @@ const ArticleListItem = ({ article }: ArticleListItemsProps) => {
 <Dialog
   open={isDialogOpen}
   onClose={() => setIsDialogOpen(false)}
-  className="fixed inset-0 z-50 overflow-y-auto hover:shadow-lg transition-shadow"
-
+  className="fixed inset-0 z-50 overflow-y-auto"
 >
-  <Dialog.Overlay className="fixed inset-0 bg-black opacity-50" />
+  {/* Semi-transparent background overlay */}
+  <Dialog.Overlay className="fixed inset-0 bg-black opacity-60" />
 
   <div className="flex items-center justify-center min-h-screen">
     <Dialog.Panel className="bg-white rounded-lg shadow-lg max-w-3xl w-full p-6 overflow-hidden">
       <div className="absolute top-2 right-2">
-      <button
-  onClick={() => setIsDialogOpen(false)}
-  className="text-gray-600 hover:text-gray-900 focus:outline-none focus:ring focus:ring-opacity-50 bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-full transition-transform transform hover:scale-105 active:scale-100"
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    className="w-6 h-6"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="2"
-      d="M6 18L18 6M6 6l12 12"
-    />
-  </svg>
-</button>
-
-
+        <button
+          onClick={() => setIsDialogOpen(false)}
+          className="text-gray-600 hover:text-gray-900 focus:outline-none focus:ring focus:ring-opacity-50 bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-full transition-transform transform hover:scale-105 active:scale-100"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
       </div>
       {articleDetailsData && (
         <div>
-          <h2 className="text-3xl font-bold mb-4 hover:text-black-500 hover:bg-gray-100 focus:text-black-500 focus:bg-gray-100 focus:outline-none transition-transform transform hover:scale-105"
-
->{articleDetailsData.title}</h2>
+          <h2 className="text-3xl font-bold mb-4 text-gray-900">
+            {articleDetailsData.title}
+          </h2>
           <div className="relative h-60 mb-4">
             <img
               src={articleDetailsData.thumbnail}
@@ -105,12 +103,16 @@ const ArticleListItem = ({ article }: ArticleListItemsProps) => {
               className="w-full h-full object-cover rounded-md transition-transform transform hover:scale-105"
             />
           </div>
-          <div className="w-full h-full object-cover rounded-md transition-transform transform hover:scale-105 bg-white">{articleDetailsData.content}</div>
+          <div className="text-gray-800 leading-7">
+            {articleDetailsData.content}
+          </div>
         </div>
       )}
     </Dialog.Panel>
   </div>
 </Dialog>
+
+
 
       </div>
 
