@@ -66,7 +66,7 @@ const Favourites: React.FC = () => {
       
         {selectedSport && (
           <div className="dropdown-container p-4">
-            <select className="dropdown p-2 border rounded-md bg-black-500 text-white" value={selectedTeam} onChange={handleTeamChange}>
+            <select className="dropdown p-2 border rounded-md bg-gray-800 text-white" value={selectedTeam} onChange={handleTeamChange}>
               <option value="">Select Team</option>
               {teamsState?.teams
                 .filter((team: any) => team.plays === selectedSport)
