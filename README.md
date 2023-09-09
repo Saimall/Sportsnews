@@ -1,27 +1,49 @@
-# React + TypeScript + Vite
+# Sports News and Scores Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Sports News and Scores Dashboard is a web application that provides users with up-to-date sports news articles and live scores for various sports.
+It allows users to stay informed about their favourite sports, read news articles, and track live match scores, all in one place. Additionally, users can personalize their dashboard by selecting their favourite sports or teams to receive tailored news and score updates.
 
-Currently, two official plugins are available:
+This unified proposal combines the ability to browse sports news and scores with the option to personalize the dashboard through account creation and customization of preferences. 
+Users can filter news articles, search for specific articles, and view live scores, all while having the ability to personalize their dashboard according to their preferences
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+# **DEMO SCREEN SHOTS**:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+ > **Home Pages:**
+<img width="500" height="300" alt="image" src="https://github.com/Saimall/Sportsnews/assets/113211361/66226c00-8888-4540-bb72-408293744490">
 
-- Configure the top-level `parserOptions` property like this:
+<img width="500" height="300" alt="image" src="https://github.com/Saimall/Sportsnews/assets/113211361/4f635fa9-31ad-4e3b-9915-1175a8fe87ff">
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+<img width="500" height="300" alt="image" src="https://github.com/Saimall/Sportsnews/assets/113211361/73d6836d-4ff2-4bc3-a2c8-493bd5fb4cdd">
+ 
+ > **signup page:**
+<img width="500" height="300" alt="image" src="https://github.com/Saimall/Sportsnews/assets/113211361/d6e3930e-17e3-4180-8a34-688635694d7b">
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+<img width="500" height="300" alt="image" src="https://github.com/Saimall/Sportsnews/assets/113211361/b225a65e-dda5-4992-af6f-2f87cac0b9b7">
+
+> **signin page:**
+<img width="500" height="300" alt="image" src="https://github.com/Saimall/Sportsnews/assets/113211361/cb5b2686-8a40-4e48-930b-d9b0242ffcb7">
+
+<img width="500" height="300" alt="image" src="https://github.com/Saimall/Sportsnews/assets/113211361/ccf9a2a7-217f-4273-947a-ef805fc6737d">
+ 
+ >  **Preferences dialog**
+<img width="500" height="300" alt="image" src="https://github.com/Saimall/Sportsnews/assets/113211361/78bb106d-1fcf-4973-8686-c9e6c5fb7f58">
+ 
+  >  **Read more Articles dialog:**
+<img width="500" height="300" alt="image" src="https://github.com/Saimall/Sportsnews/assets/113211361/5352c09e-7c84-4e8a-a335-dcfcd9388114">
+  
+   >  **Read more Favourites dialog**
+<img width="500" height="300" alt="image" src="https://github.com/Saimall/Sportsnews/assets/113211361/1ed6a3f2-b74c-4484-ab38-bf11002cb6ac">
+  
+  
+  ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ## Demo videos:
+
+ https://www.loom.com/share/0565b23f80bb488780f25c5eee861999 <br>
+                  https://www.loom.com/share/d50ba5bec3fc4491b67d710d799628b4 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  ## Live URL Application Link :
+
+https://steady-travesseiro-0f7baa.netlify.app
+
