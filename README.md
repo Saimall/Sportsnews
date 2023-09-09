@@ -12,24 +12,24 @@ Users can filter news articles, search for specific articles, and view live scor
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
  > **Home Pages:**
 <img width="500" height="300" alt="image" src="https://github.com/Saimall/Sportsnews/assets/113211361/66226c00-8888-4540-bb72-408293744490">
-
+> **--------------------------------------------------------------------------------------------------------------**
 <img width="500" height="300" alt="image" src="https://github.com/Saimall/Sportsnews/assets/113211361/4f635fa9-31ad-4e3b-9915-1175a8fe87ff">
-
+> **--------------------------------------------------------------------------------------------------------------**
 <img width="500" height="300" alt="image" src="https://github.com/Saimall/Sportsnews/assets/113211361/73d6836d-4ff2-4bc3-a2c8-493bd5fb4cdd">
  
  > **signup page:**
 <img width="500" height="300" alt="image" src="https://github.com/Saimall/Sportsnews/assets/113211361/d6e3930e-17e3-4180-8a34-688635694d7b">
-
+> **--------------------------------------------------------------------------------------------------------------**
 <img width="500" height="300" alt="image" src="https://github.com/Saimall/Sportsnews/assets/113211361/b225a65e-dda5-4992-af6f-2f87cac0b9b7">
 
 > **signin page:**
 <img width="500" height="300" alt="image" src="https://github.com/Saimall/Sportsnews/assets/113211361/cb5b2686-8a40-4e48-930b-d9b0242ffcb7">
-
+> **--------------------------------------------------------------------------------------------------------------**
 <img width="500" height="300" alt="image" src="https://github.com/Saimall/Sportsnews/assets/113211361/ccf9a2a7-217f-4273-947a-ef805fc6737d">
  
  >  **Preferences dialog**
 <img width="500" height="300" alt="image" src="https://github.com/Saimall/Sportsnews/assets/113211361/78bb106d-1fcf-4973-8686-c9e6c5fb7f58">
- 
+
   >  **Read more Articles dialog:**
 <img width="500" height="300" alt="image" src="https://github.com/Saimall/Sportsnews/assets/113211361/5352c09e-7c84-4e8a-a335-dcfcd9388114">
   
@@ -40,8 +40,6 @@ Users can filter news articles, search for specific articles, and view live scor
   ----------------------------------------------------------------------------------------------------------------------------------------------------------------
   ## Demo videos:
 
- https://www.loom.com/share/0565b23f80bb488780f25c5eee861999 <br>
-                  https://www.loom.com/share/d50ba5bec3fc4491b67d710d799628b4 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
   ## Live URL Application Link :
 
