@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import { API_ENDPOINT } from "../../config/constant";
-import { useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import signinform from './signinform.css'
@@ -125,14 +125,25 @@ const SigninForm: React.FC = () => {
             errors.password ? "border-red-500" : ""
           }`}
         />
-        {errors.password && <span>This field is required</span>}
+        {errors.password && <span className="text-red-600 text-sm font-bold block mt-2">This field is required</span>}
       </div>
-      <button
-        type="submit"
-        className="w-full bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4"
-      >
-        Sign In
-      </button>
+      <div className="flex justify-center">
+  <button
+    type="submit"
+    className="bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4 mr-2"
+  >
+    Sign In
+  </button>
+
+  <NavLink
+    to='/signup'
+    className="bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4"
+  >
+    Sign Up
+  </NavLink>
+</div>
+
+
       
     </form>
     <ErrorModal showErrorModal={showErrorModal} setShowErrorModal={setShowErrorModal} />

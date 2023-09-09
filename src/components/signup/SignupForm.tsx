@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { API_ENDPOINT } from "../../config/constant";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 type Inputs = {
   name: string;
@@ -130,12 +130,21 @@ const SignupForm: React.FC = () => {
         />
       </div>
       {errors.password && <span>This field is required!!!</span>}
-      <button
-        type="submit"
-        className="w-full bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4"
-      >
-        Sign up
-      </button>
+      <div className="flex justify-center">
+  <button
+    type="submit"
+    className="bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4 mr-2"
+  >
+    Sign Up
+  </button>
+
+  <NavLink
+    to='/signin'
+    className="bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4"
+  >
+    Sign In
+  </NavLink>
+</div>
     </form>
     <ErrorModal showErrorModal={showErrorModal} setShowErrorModal={setShowErrorModal} />
  </>
