@@ -84,10 +84,14 @@ const Appbar = () => {
     }));
   };
 
-  const sports = useSportsState();
-  const teams = useTeamsState();
-  const sports1 = sports?.sports;
-  const teams1 = teams?.teams;
+  const sportsList = useSportsState() ;
+  const sportsCheckedList = sportsList?.sports ;
+
+
+const teamsList = useTeamsState() ;
+const teamsCheckedList = teamsList?.teams ;
+
+
 
   useEffect(() => {
     if (authToken) {
@@ -273,7 +277,7 @@ const Appbar = () => {
                           flexWrap: "wrap",
                         }}
                       >
-                        {sports1?.map((sport: Sport) => (
+                        {sportsCheckedList?.map((sport: Sport) => (
                           <div
                             key={sport.id}
                             className="w-1/3 mb-4 px-2"
@@ -317,7 +321,7 @@ const Appbar = () => {
                         </h1>
                       </div>
                       <div className="py-2 flex flex-wrap bg-grey 777">
-                        {teams1?.map((team: Team) => (
+                        {teamsCheckedList?.map((team: Team) => (
                           <div key={team.id} className="w-1/3 mb-4 px-2">
                             <input
                               type="checkbox"
