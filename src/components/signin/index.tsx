@@ -1,8 +1,6 @@
 import React from "react";
 import SigninForm from "./SigninForm";
 
-
-
 const Signin: React.FC = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -15,6 +13,5 @@ const Signin: React.FC = () => {
     </div>
   );
 };
-
 
 export default Signin;

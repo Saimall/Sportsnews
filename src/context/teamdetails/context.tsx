@@ -1,8 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useContext, useReducer } from "react";
 import { reducer } from "./reducer";
-import { initialState, TeamsState, TeamsActions } from './interfaces';
-
+import { initialState, TeamsState, TeamsActions } from "./interfaces";
 
 const TeamsContext = createContext<TeamsState | undefined>(undefined);
 type TeamsDispatch = React.Dispatch<TeamsActions>;
@@ -26,4 +25,4 @@ export const TeamsProvider: React.FC<React.PropsWithChildren> = ({
       </TeamsDispatchContext.Provider>
     </TeamsContext.Provider>
   );
-}
+};

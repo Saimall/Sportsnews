@@ -1,8 +1,11 @@
 /* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useContext, useReducer } from "react";
 import { reducer } from "./reducer";
-import { initialState, SportsState, SportsActions } from '../favourites/interfaces'
-
+import {
+  initialState,
+  SportsState,
+  SportsActions,
+} from "../favourites/interfaces";
 
 const SportsContext = createContext<SportsState | undefined>(undefined);
 type SportsDispatch = React.Dispatch<SportsActions>;
@@ -16,7 +19,6 @@ export const useSportsDispatch = () => useContext(SportsDispatchContext);
 export const SportsProvider: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {
-  
   const [sportsState, sportsDispatch] = useReducer(reducer, initialState);
 
   return (
@@ -26,4 +28,4 @@ export const SportsProvider: React.FC<React.PropsWithChildren> = ({
       </SportsDispatchContext.Provider>
     </SportsContext.Provider>
   );
-}
+};

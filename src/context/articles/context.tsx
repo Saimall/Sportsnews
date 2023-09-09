@@ -1,15 +1,18 @@
 /* eslint-disable react-refresh/only-export-components */
 
-import { initialState,ArticlesState,ArticlesActions } from "./interfaces";
+import { initialState, ArticlesState, ArticlesActions } from "./interfaces";
 
 import React, { createContext, useContext, useReducer } from "react";
 
 import { reducer } from "./reducer";
 
-const ArticlesStateContext = createContext<ArticlesState | undefined>(undefined);
+const ArticlesStateContext = createContext<ArticlesState | undefined>(
+  undefined,
+);
 type ArticlesDispatch = React.Dispatch<ArticlesActions>;
-const ArticlesDispatchContext = createContext<ArticlesDispatch | undefined>(undefined);
-
+const ArticlesDispatchContext = createContext<ArticlesDispatch | undefined>(
+  undefined,
+);
 
 export const useArticlesState = () => useContext(ArticlesStateContext);
 export const useArticlesDispatch = () => useContext(ArticlesDispatchContext);

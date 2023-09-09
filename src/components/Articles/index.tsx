@@ -1,15 +1,12 @@
-import ArticlesItems from './Articles';
-
+import ArticlesItems from "./Articles";
 
 //rendering the articles
-const Articles=()=> {
-   
-    
+const Articles = () => {
   return (
-          <div>
-      <ArticlesItems/>
-          </div>
-        );
-}
+    <div>
+      <ArticlesItems />
+    </div>
+  );
+};
 
-export default Articles
+export default Articles;

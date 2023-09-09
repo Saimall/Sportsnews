@@ -1,33 +1,32 @@
 import { TeamsActions, TeamsState, initialState } from "./interfaces";
 
 export const reducer = (
-    state: TeamsState = initialState,
-    action: TeamsActions
+  state: TeamsState = initialState,
+  action: TeamsActions,
 ): TeamsState => {
-
-    switch (action.type) {
+  switch (action.type) {
     case "FETCH_TEAMS_REQUEST":
-        return {
+      return {
         ...state,
         isLoading: true,
-        };
+      };
 
     case "FETCH_TEAMS_SUCCESS":
-        return {
+      return {
         ...state,
         isLoading: false,
         teams: action.payload,
-        };
+      };
 
     case "FETCH_TEAMS_FAILURE":
-        return {
+      return {
         ...state,
         isError: true,
         errorMessage: action.payload,
         isLoading: false,
-        };
+      };
 
     default:
-        return state;
-    }
+      return state;
+  }
 };

@@ -7,7 +7,7 @@ import { API_ENDPOINT } from "../config/constant";
 export const useUserPreferences = (auth_token: any) => {
   const [favouriteSports, setFavouriteSports] = useState({});
   const [favouriteTeams, setFavouriteTeams] = useState({});
-  
+
   const fetchUserPreferences = async () => {
     try {
       const response = await fetch(`${API_ENDPOINT}/user/preferences`, {
@@ -20,7 +20,7 @@ export const useUserPreferences = (auth_token: any) => {
 
       if (response.ok) {
         const data = await response.json();
-         console.log(data)
+        console.log(data);
         if (data.preferences.sports && data.preferences.teams) {
           setFavouriteSports(data.preferences.sports);
           setFavouriteTeams(data.preferences.teams);
@@ -44,7 +44,10 @@ export const useUserPreferences = (auth_token: any) => {
     }
   };
 
-  const saveUserPreferences = async (tempFavouriteSports: SetStateAction<{}>, tempFavouriteTeams: SetStateAction<{}>) => {
+  const saveUserPreferences = async (
+    tempFavouriteSports: SetStateAction<{}>,
+    tempFavouriteTeams: SetStateAction<{}>,
+  ) => {
     setFavouriteSports(tempFavouriteSports);
     setFavouriteTeams(tempFavouriteTeams);
 

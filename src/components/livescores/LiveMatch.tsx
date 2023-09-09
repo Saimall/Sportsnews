@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-import { API_ENDPOINT } from '../../config/constant'
+import { API_ENDPOINT } from "../../config/constant";
 
 interface Props {
   id: number;
@@ -22,30 +22,28 @@ interface State {
 const LiveMatch = (props: Props) => {
   const [liveMatch, setLiveMatch] = useState<State>({
     isRunning: false,
-    sportName: '',
+    sportName: "",
     id: 0,
-    location: '',
-    teams: [{ name: '' }, { name: '' }],
+    location: "",
+    teams: [{ name: "" }, { name: "" }],
     score: {},
   });
-  
- 
 
   const getmatchinformation = async (id: number) => {
     try {
       const response = await fetch(`${API_ENDPOINT}/matches/${id}`, {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
       });
 
       if (!response.ok) {
-        throw new Error('Failed to fetch match details');
+        throw new Error("Failed to fetch match details");
       }
 
       const data = await response.json();
       setLiveMatch(data);
     } catch (error) {
-      console.error('Data fetching failed:', error);
+      console.error("Data fetching failed:", error);
     }
   };
 
@@ -82,11 +80,15 @@ const LiveMatch = (props: Props) => {
         <div className="p-4 space-y-4">
           <div className="flex justify-between">
             <span className="text-gray-700">{liveMatch.teams[0].name}</span>
-            <span className="font-semibold">{liveMatch.score[liveMatch.teams[0].name]}</span>
+            <span className="font-semibold">
+              {liveMatch.score[liveMatch.teams[0].name]}
+            </span>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-700">{liveMatch.teams[1].name}</span>
-            <span className="font-semibold">{liveMatch.score[liveMatch.teams[1].name]}</span>
+            <span className="font-semibold">
+              {liveMatch.score[liveMatch.teams[1].name]}
+            </span>
           </div>
         </div>
       </div>
