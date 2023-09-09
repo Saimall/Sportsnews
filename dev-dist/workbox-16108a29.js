@@ -1,13 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-cond-assign */
-/* eslint-disable no-constant-condition */
-/* eslint-disable no-undef */
-/* eslint-disable no-undef */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable no-empty */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable no-undef */
 define(['exports'], (function (exports) { 'use strict';
 
     // @ts-ignore
