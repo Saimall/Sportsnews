@@ -137,19 +137,19 @@ const SigninForm: React.FC = () => {
           )}
         </div>
         <div className="flex justify-center">
-          <button
-            type="submit"
-            className="bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4 mr-2"
-          >
-            Sign In
-          </button>
-
           <NavLink
             to="/signup"
             className="bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4 mr-2"
           >
             Sign Up
           </NavLink>
+
+          <button
+            type="submit"
+            className="bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4 mr-2"
+          >
+            Sign In
+          </button>
 
           <NavLink
             to="/home"
