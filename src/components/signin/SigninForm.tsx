@@ -136,12 +136,20 @@ const SigninForm: React.FC = () => {
   </button>
 
   <NavLink
-    to='/signup'
-    className="bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4"
+    to="/signup"
+    className="bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4 mr-2"
   >
     Sign Up
   </NavLink>
+
+  <NavLink
+    to="/home"
+    className="bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4"
+  >
+    Home
+  </NavLink>
 </div>
+
 
 
       
