@@ -19,6 +19,15 @@ const Article: React.FC = () => {
 
   const { articles, isLoading, isError, errorMessage } = state;
 
+   const favoriteSports = JSON.parse(
+    localStorage.getItem("favouriteSports") || "{}",
+  );
+
+  const favoriteTeams = JSON.parse(
+    localStorage.getItem("favouriteTeams") || "{}",
+  );
+  const authToken = localStorage.getItem("authToken");
+
   const applyFilter = (article:any) => {
     const isSportMatch = !selectedSport || article.sport.name === selectedSport;
   
@@ -35,12 +44,23 @@ const Article: React.FC = () => {
         default:
           return true;
       }
+
     }
-  
     return false;
   };
+  const filterByFavorites = (article: any) => {
+    if (authToken) {
+      const isSportFavorite = favoriteSports[article.sport.name] === true;
+      const isAnyTeamFavorite = article.teams.some((team: any) => favoriteTeams[team.name] === true);
   
-  //rendering the sports button
+      return isSportFavorite && (article.teams.length === 0 || isAnyTeamFavorite);
+    } else {
+      return true;
+    }
+  };
+  
+
+
   const renderSportButtons = () => {
     const sportNames = [...new Set(articles.map((article: { sport: { name: any; }; }) => article.sport.name))];
 
@@ -65,15 +85,15 @@ const Article: React.FC = () => {
   }
 
 
- //comparing by sports name
+
   const compareSportNames = (articleA: { sport: { name: string; }; }, articleB: { sport: { name: any; }; }) => {
     return articleA.sport.name.localeCompare(articleB.sport.name);
   };
-  //comparing buy dates
+
   const compareDates = (articleA: { date: string; }, articleB: { date: any; }) => {
     return articleA.date.localeCompare(articleB.date);
   };
-  //comparing by titles
+
   const compareTitles = (articleA: { title: string; }, articleB: { title: any; }) => {
     return articleA.title.localeCompare(articleB.title);
   };
@@ -111,8 +131,9 @@ const Article: React.FC = () => {
         </div>
       </div>
     </div><div className="m-4">
-        {articles
+    {articles
           .filter(applyFilter)
+          .filter(filterByFavorites) // Filter by favorites
           .sort(articlessort)
           .map((article: any) => (
             <ArticleListItem key={article.id} article={article} />
