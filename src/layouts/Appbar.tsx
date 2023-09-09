@@ -1,34 +1,34 @@
-
-import { Disclosure  , Menu, Switch  } from "@headlessui/react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+// Appbar.js
+import { Dialog, Disclosure, Menu, Switch } from "@headlessui/react";
 import Logo from "../assets/react.svg";
-import logo1 from "../assets/logo1.jpeg"
+import logo1 from "../assets/logo1.jpeg";
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from "react";
-
-
-import { useContext } from 'react'
-
+import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../context/theme";
-
+import { useTeamsState } from "../context/teamdetails/context";
+import { useSportsState } from "../context/favourites/context";
+import { Sport } from "../context/favourites/interfaces";
+import { Team } from "../context/teamdetails/interfaces";
+import { useUserPreferences } from "./userPreference";
+import LiveScorePage from "../components/livescores";
+import Articles from "../components/Articles";
+import Favouritesdisplay from "../components/Favourites";
 
 const Appbar = () => {
-
-
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const { theme, setTheme } = useContext(ThemeContext);
   const [enabled, setEnabled] = useState(theme === 'dark');
 
   const authToken = localStorage.getItem("authToken");
+  const { favouriteSports, favouriteTeams, fetchUserPreferences, saveUserPreferences } = useUserPreferences(authToken);
 
   const toggleTheme = () => {
-    let newTheme = ''
-    if (theme === 'light') {
-      newTheme = 'dark'
-    } else {
-      newTheme = 'light'
-    }
-    setEnabled(!enabled)
-    setTheme(newTheme)
-  }
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setEnabled(!enabled);
+    setTheme(newTheme);
+  };
+
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
@@ -37,12 +37,59 @@ const Appbar = () => {
     }
   }, [theme]);
 
+  const [tempFavouriteSports, setTempFavouriteSports] = useState<{ [key: string]: boolean }>({});
+  const [tempFavouriteTeams, setTempFavouriteTeams] = useState<{ [key: string]: boolean }>({});
 
-  function handleLinkClick(): void {
-    throw new Error("Function not implemented.");
-  }
+  const handleLinkClick = () => {
+    setTempFavouriteSports(favouriteSports);
+    setTempFavouriteTeams(favouriteTeams);
+    setIsDialogOpen(true);
+  };
+
+  const handleCancel = () => {
+    setTempFavouriteSports(favouriteSports);
+    setTempFavouriteTeams(favouriteTeams);
+    setIsDialogOpen(false);
+  };
+
+  const handleSave = () => {
+    saveUserPreferences(tempFavouriteSports, tempFavouriteTeams);
+    setIsDialogOpen(false);
+  };
+
+  const handleSportCheckbox = (event: { target: { id: any; checked: any; }; }) => {
+    const { id, checked } = event.target;
+    setTempFavouriteSports((previousSports) => ({
+      ...previousSports,
+      [id]: checked,
+    }));
+  };
+
+  const handleTeamCheckbox = (event: { target: { id: any; checked: any; }; }) => {
+    const { id, checked } = event.target;
+    setTempFavouriteTeams((previousTeams) => ({
+      ...previousTeams,
+      [id]: checked,
+    }));
+  };
+
+  const sports = useSportsState();
+  const teams = useTeamsState();
+  const sports1 = sports?.sports;
+  const teams1 = teams?.teams;
+
+  useEffect(() => {
+    if (authToken) {
+      fetchUserPreferences();
+    }
+  }, [authToken, fetchUserPreferences]);
+
+
+
+
 
   return (
+  <>
     <Disclosure as="nav" className="bg-white shadow">
       
     {() => (
@@ -125,10 +172,129 @@ const Appbar = () => {
   
            
           </Menu>
+          <Dialog
+                      open={isDialogOpen}
+                      onClose={() => setIsDialogOpen(false)}
+                      className="relative z-50"
+                    >
+                      <div className="fixed inset-0 flex items-center justify-center p-4">
+                        <Dialog.Panel className="w-full max-h-screen overflow-y-auto p-4 max-w-xl rounded bg-white">
+                          <div className="flex justify-end">
+                            <button onClick={() => setIsDialogOpen(false)}>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth="1.5"
+                                stroke="currentColor"
+                                className="w-6 h-6"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                />
+                              </svg>
+                            </button>
+                          </div>
+
+                          <div>
+                            <Dialog.Title className="bg-white  font-bold text-2xl py-2">
+                              Preferences
+                            </Dialog.Title>
+                          </div>
+                          <div className="p-2 flex flex-wrap">
+                            <h1 className="font-bold text-xl">
+                              Favourite Sports
+                            </h1>
+                            <div className="py-2 flex flex-wrap">
+                                {sports1?.map((sport: Sport) => (
+                                  <div
+                                    key={sport.id}
+                                    className="w-1/3 mb-4 px-2"
+                                  >
+                                    <input
+                                      type="checkbox"
+                                      className="w-6 h-4"
+                                      id={sport.name}
+                                      value={sport.name}
+                                      checked={
+                                        tempFavouriteSports[sport.name] || false
+                                      }
+                                      onChange={handleSportCheckbox}
+                                    />
+                                    <label
+                                      htmlFor={sport.name}
+                                      className="ml-2"
+                                    >
+                                      {sport.name}
+                                    </label>
+                                  </div>
+                                ))}
+                              </div>
+                            <div className="py-2 flex flex-wrap">
+                                <h1>preferences sports</h1>
+                            </div>
+                            <div className="py-2 flex flex-wrap">
+                                {teams1?.map((team: Team) => (
+                                  <div
+                                    key={team.id}
+                                    className="w-1/3 mb-4 px-2"
+                                  >
+                                    <input
+                                      type="checkbox"
+                                      className="w-6 h-4"
+                                      id={team.name}
+                                      value={team.name}
+                                      checked={
+                                        tempFavouriteTeams[team.name] || false
+                                      }
+                                      onChange={handleTeamCheckbox}
+                                    />
+                                    <label htmlFor={team.name} className="ml-2">
+                                      {team.name}
+                                    </label>
+                                  </div>
+                                ))}
+                              </div>
+                            <button
+                              className="bg-gray-800 px-2 py-2 text-white hover:bg-blue-700 text-xl"
+                              onClick={() => handleCancel()}
+                            >
+                              cancel
+                            </button>
+                            <button
+                              onClick={() => handleSave()}
+                              className="bg-gray-800 px-2 py-2 mx-2 text-white  hover:bg-blue-700 text-xl"
+                            >
+                              save
+                            </button>
+                          </div>
+                        </Dialog.Panel>
+                      </div>
+                    </Dialog>
+
         </div>
       </div>
     )}
   </Disclosure>
+  <div>
+  <div className='bg-grey 777'>
+        <LiveScorePage/>
+          <h1 className="font-bold text-xl p-4">Trending News</h1>
+          <div className="flex flex-col lg:flex-row">
+            <div className="lg:w-3/4 shadow-lg">
+              <Articles />
+            </div>
+            <div className="lg:w-1/4 shadow-lg">
+            <h1 className="font-bold text-xl p-4">Favourites</h1>
+              <Favouritesdisplay />
+            </div>
+          </div>
+      </div>
+  </div>
+  </>
+    
   
   );
 };
