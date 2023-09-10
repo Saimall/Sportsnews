@@ -7,10 +7,12 @@ const Favouritesdisplay = () => {
   return (
     <div className="m-2 bg-gray-200">
       <div className="m-2">
-      <ErrorBoundary>
-      <Suspense fallback={<div className="suspense-loading">Loading...</div>}>
-        <Favourites />
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense
+            fallback={<div className="suspense-loading">Loading...</div>}
+          >
+            <Favourites />
+          </Suspense>
         </ErrorBoundary>
       </div>
     </div>

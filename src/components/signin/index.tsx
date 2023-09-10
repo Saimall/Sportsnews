@@ -1,10 +1,7 @@
 import React, { Suspense } from "react";
 
-
 import ErrorBoundary from "../Errorboundary/ErrorBoundary";
 const SigninForm = React.lazy(() => import("./SigninForm"));
-
-
 
 const Signin: React.FC = () => {
   return (
@@ -13,11 +10,13 @@ const Signin: React.FC = () => {
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-8">
           Sign in
         </h1>
-        
+
         <ErrorBoundary>
-        <Suspense fallback={<div className="suspense-loading">Loading...</div>}> 
-        <SigninForm />
-        </Suspense>
+          <Suspense
+            fallback={<div className="suspense-loading">Loading...</div>}
+          >
+            <SigninForm />
+          </Suspense>
         </ErrorBoundary>
       </div>
     </div>

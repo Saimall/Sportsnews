@@ -84,14 +84,11 @@ const Appbar = () => {
     }));
   };
 
-  const sportsList = useSportsState() ;
-  const sportsCheckedList = sportsList?.sports ;
+  const sportsList = useSportsState();
+  const sportsCheckedList = sportsList?.sports;
 
-
-const teamsList = useTeamsState() ;
-const teamsCheckedList = teamsList?.teams ;
-
-
+  const teamsList = useTeamsState();
+  const teamsCheckedList = teamsList?.teams;
 
   useEffect(() => {
     if (authToken) {

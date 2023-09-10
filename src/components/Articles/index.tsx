@@ -6,9 +6,9 @@ const Articles = () => {
   return (
     <div>
       <ErrorBoundary>
-      <Suspense fallback={<div className="suspense-loading">Loading...</div>}>
-      <ArticlesItems />
-      </Suspense>
+        <Suspense fallback={<div className="suspense-loading">Loading...</div>}>
+          <ArticlesItems />
+        </Suspense>
       </ErrorBoundary>
     </div>
   );

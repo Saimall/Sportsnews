@@ -18,9 +18,11 @@ const LiveScorePage = () => {
       <div className="flex px-4 py-2 shadow-lg">
         <div className="grid gap-4 grid-cols-2 mt-5">
           <ErrorBoundary>
-        <Suspense fallback={<div className="suspense-loading">Loading...</div>}>
-          <DisplayLiveMatches />
-          </Suspense>
+            <Suspense
+              fallback={<div className="suspense-loading">Loading...</div>}
+            >
+              <DisplayLiveMatches />
+            </Suspense>
           </ErrorBoundary>
         </div>
       </div>

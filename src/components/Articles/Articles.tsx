@@ -125,8 +125,11 @@ const Article: React.FC = () => {
     }
   };
 
-  const preferencesSelected = authToken && (Object.keys(favoriteSports).length > 0 || Object.keys(favoriteTeams).length > 0);
- console.log(preferencesSelected)
+  const preferencesSelected =
+    authToken &&
+    (Object.keys(favoriteSports).length > 0 ||
+      Object.keys(favoriteTeams).length > 0);
+  console.log(preferencesSelected);
   return (
     <>
       <div>
@@ -152,7 +155,12 @@ const Article: React.FC = () => {
           .filter(preferencesSelected ? filterByFavorites : () => true) // Filter by favorites
           .sort(articlessort)
           .map((article: any) => (
-            <ArticleListItem key={article.id} article={article} favoriteSports={favoriteSports} favoriteTeams={favoriteTeams} />
+            <ArticleListItem
+              key={article.id}
+              article={article}
+              favoriteSports={favoriteSports}
+              favoriteTeams={favoriteTeams}
+            />
           ))}
       </div>
     </>

@@ -9,9 +9,11 @@ function Signup() {
           Sign up
         </h1>
         <ErrorBoundary>
-        <Suspense fallback={<div className="suspense-loading">Loading...</div>}> 
-        <SignupForm />
-        </Suspense>
+          <Suspense
+            fallback={<div className="suspense-loading">Loading...</div>}
+          >
+            <SignupForm />
+          </Suspense>
         </ErrorBoundary>
       </div>
     </div>

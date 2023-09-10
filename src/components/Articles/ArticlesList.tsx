@@ -7,11 +7,15 @@ import { Article } from "../../context/articles/interfaces";
 
 interface ArticleListItemsProps {
   article: Article;
-  favoriteSports: Record<string, boolean>; 
-  favoriteTeams: Record<string, boolean>; 
+  favoriteSports: Record<string, boolean>;
+  favoriteTeams: Record<string, boolean>;
 }
 
-const ArticleListItem = ({ article, favoriteSports, favoriteTeams }: ArticleListItemsProps & { favoriteSports: any, favoriteTeams: any }) => {
+const ArticleListItem = ({
+  article,
+  favoriteSports,
+  favoriteTeams,
+}: ArticleListItemsProps & { favoriteSports: any; favoriteTeams: any }) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedArticleId, setSelectedArticleId] = useState<number | null>(
     null,
@@ -43,61 +47,60 @@ const ArticleListItem = ({ article, favoriteSports, favoriteTeams }: ArticleList
     }
   };
 
-
   const filterByFavorites = (article: any) => {
     const isSportFavorite = favoriteSports[article.sport.name] === true;
     const isAnyTeamFavorite = article.teams.some(
       (team: any) => favoriteTeams[team.name] === true,
     );
 
-    return (
-      isSportFavorite && (article.teams.length === 0 || isAnyTeamFavorite)
-    );
+    return isSportFavorite && (article.teams.length === 0 || isAnyTeamFavorite);
   };
 
   const userLoggedIn = localStorage.getItem("authToken") !== null;
-  console.log(userLoggedIn)
-  const preferencesSelected = userLoggedIn && (
-    Object.keys(favoriteSports).length > 0 || Object.keys(favoriteTeams).length > 0
-  );
+  console.log(userLoggedIn);
+  const preferencesSelected =
+    userLoggedIn &&
+    (Object.keys(favoriteSports).length > 0 ||
+      Object.keys(favoriteTeams).length > 0);
 
   return (
     <>
-    <div>
-    
-      {userLoggedIn && preferencesSelected && !filterByFavorites(article) ? null : (
-        <div className="m-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-1 gap-4">
-          
-          <div
-            key={article.id}
-            className="bg-white shadow-md rounded-lg overflow-hidden"
-          >
-            <img src={article.thumbnail} className="w-full h-48 object-cover" />
-            <div className="p-4">
-              <div>
-                <h3 className="text-gray-800 text-xl font-bold mb-2">
-                  {article.title}
-                </h3>
-                <p className="text-gray-600 mb-4">{article.summary}</p>
-                <div className="flex items-center justify-between">
-                  <div className="text-sm text-gray-400">
-                    {article.sport.name}
+      <div>
+        {userLoggedIn &&
+        preferencesSelected &&
+        !filterByFavorites(article) ? null : (
+          <div className="m-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-1 gap-4">
+            <div
+              key={article.id}
+              className="bg-white shadow-md rounded-lg overflow-hidden"
+            >
+              <img
+                src={article.thumbnail}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4">
+                <div>
+                  <h3 className="text-gray-800 text-xl font-bold mb-2">
+                    {article.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4">{article.summary}</p>
+                  <div className="flex items-center justify-between">
+                    <div className="text-sm text-gray-400">
+                      {article.sport.name}
+                    </div>
+                    <div className="text-sm text-gray-400">{article.date}</div>
+                    <button
+                      onClick={() => Readhandleclick(article.id)}
+                      className="text-black underline"
+                    >
+                      Read More...
+                    </button>
                   </div>
-                  <div className="text-sm text-gray-400">{article.date}</div>
-                  <button
-                    onClick={() => Readhandleclick(article.id)}
-                    className="text-black underline"
-                  >
-                    Read More...
-                  </button>
                 </div>
               </div>
-              </div>
-              </div>
-              </div>
-
-      )}
-  
+            </div>
+          </div>
+        )}
 
         <Dialog
           open={isDialogOpen}
@@ -150,7 +153,6 @@ const ArticleListItem = ({ article, favoriteSports, favoriteTeams }: ArticleList
           </div>
         </Dialog>
       </div>
-    
     </>
   );
 };
