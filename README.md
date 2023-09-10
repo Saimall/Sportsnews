@@ -39,7 +39,7 @@ Users can filter news articles, search for specific articles, and view live scor
   
   ----------------------------------------------------------------------------------------------------------------------------------------------------------------
   ## Demo videos:
-https://www.loom.com/share/b2cb7564e45d4d6e9c4bda72a92a7997?sid=5ca1d3fe-5706-4912-bfc5-bc6e5f8fa619
+https://www.loom.com/share/fcc98966315347cea3dabe2b1913eeae?sid=f6ba94d1-cb1d-47a0-b24e-a540b72b683a
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
   ## Live URL Application Link :
 
