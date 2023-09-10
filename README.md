@@ -26,7 +26,7 @@ Users can filter news articles, search for specific articles, and view live scor
 <img width="500" height="300" alt="image" src="https://github.com/Saimall/Sportsnews/assets/113211361/cb5b2686-8a40-4e48-930b-d9b0242ffcb7">
 <br />
 <img width="500" height="300" alt="image" src="https://github.com/Saimall/Sportsnews/assets/113211361/ccf9a2a7-217f-4273-947a-ef805fc6737d">
- <br />
+
  >  **Preferences dialog**
 <img width="500" height="300" alt="image" src="https://github.com/Saimall/Sportsnews/assets/113211361/78bb106d-1fcf-4973-8686-c9e6c5fb7f58">
 
